@@ -47,7 +47,7 @@ object BinaryTree {
 			case Node(data, _,rightChild) => List(data, preorder(rightChild))
 			case Node(data, _, _) => List(data)
 			case EmptyTree => Nil
-		}
+ 		}
 	}
 
 	def postOrder(binaryTree: IntTree): List[Any] = {
