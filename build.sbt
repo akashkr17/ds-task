@@ -4,5 +4,7 @@ ThisBuild / scalaVersion := "2.13.8"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "ds-task"
+    name := "ds-task",
+
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.10" % Test
   )
