@@ -29,5 +29,48 @@ object BinaryTree {
 			case _ => tree
 		}
 	}
+
+	def inorder(binaryTree: IntTree): List[Any] = {
+		binaryTree match {
+			case Node(data, leftChild, rightChild) => List(inorder(leftChild), data, inorder(rightChild))
+			case Node(data, leftChild, _) => List(inorder(leftChild), data)
+			case Node(data, _, rightChild) => List(data, inorder(rightChild))
+			case Node(data, _, _) => List(data)
+			case EmptyTree => Nil
+		}
+	}
+
+	def preorder(binaryTree: IntTree): List[Any] = {
+		binaryTree match {
+			case Node(data, leftChild,rightChild) => List(data, preorder(leftChild), preorder(rightChild))
+			case Node(data, leftChild, _) => List(data, preorder(leftChild))
+			case Node(data, _,rightChild) => List(data, preorder(rightChild))
+			case Node(data, _, _) => List(data)
+			case EmptyTree => Nil
+		}
+	}
+
+	def postOrder(binaryTree: IntTree): List[Any] = {
+		binaryTree match {
+			case Node(data, leftChild, rightChild) => List(postOrder(leftChild), postOrder(rightChild), data)
+			case Node(data, leftChild, _) => List(postOrder(leftChild), data)
+			case Node(data, _, rightChild) => List(postOrder(rightChild), data)
+			case Node(data, _, _) => List(data)
+			case EmptyTree => Nil
+		}
+	}
+}
+
+
+object BinaryTreeMain extends App {
+
+	val t: BinaryTree.type = BinaryTree
+	val tree: BinaryTree.Node = t.Node(8, t.Node(5, t.Node(7, t.EmptyTree, t.EmptyTree),
+		t.EmptyTree), t.Node(7, t.EmptyTree, t.Node(2, t.EmptyTree, t.EmptyTree)))
+
+	println(t.inorder(tree))
+	println(t.preorder(tree))
+	println(t.postOrder(tree))
+
 }
 
