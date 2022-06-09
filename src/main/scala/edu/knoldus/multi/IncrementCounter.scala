@@ -1,12 +1,13 @@
 package edu.knoldus.multi
 
 import java.util.concurrent.atomic.AtomicInteger
+import scala.Console.println
 
 
-// Creating object
+
 object IncrementCounter extends App {
-	// Main method
-	private var count = new AtomicInteger(0)
+
+	private val count = new AtomicInteger(0)
 
 
 	for (x <- 1 to 2000) {
@@ -24,3 +25,4 @@ object IncrementCounter extends App {
 		}
 	}
 }
+
