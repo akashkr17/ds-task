@@ -43,7 +43,6 @@ object StackMain extends  App {
 	stringStack.show()
 
 	val list = List(1,2,3)
-	list.reverse
 
 
 }
