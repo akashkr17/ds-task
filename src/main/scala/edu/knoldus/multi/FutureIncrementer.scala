@@ -8,7 +8,6 @@ object FutureIncrementer extends App {
 var count = 0
 	implicit val ec: ExecutionContextExecutor = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(2000))
 	val tasks: Seq[Future[Unit]] = for (i <- 1 to 2000) yield Future {
-		// do something more fancy here
 		synchronized {
 			count += 1
 			println(s"Thread ${Thread.currentThread().getName} is running. Counter = $count")
